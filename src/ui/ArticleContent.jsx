@@ -2,7 +2,6 @@ import React from "react";
 import BookmarkBtn from "./BookmarkBtn";
 
 export default function ArticleContent({ article }) {
-<<<<<<< HEAD
   const getReadTime = () => {
     if (!article.description) return "5 min read";
     const words = article.description.split(' ').length;
@@ -20,7 +19,7 @@ export default function ArticleContent({ article }) {
     const date = new Date(dateString);
     const now = new Date();
     const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
-    
+
     if (diffInHours < 1) return "Just now";
     if (diffInHours < 24) return `${diffInHours} hours ago`;
     const diffInDays = Math.floor(diffInHours / 24);
@@ -75,34 +74,5 @@ export default function ArticleContent({ article }) {
         </div>
       </div>
     </>
-=======
-  function truncateText(text, maxLength) {
-    const words = text.split();
-    if (words.length > maxLength) {
-      return words.slice(0, maxLength).join(" ") + "...";
-    } else {
-      return text;
-    }
-  }
-  return (
-    <div className=" h-[30rem] ">
-      <div className="flex justify-between">
-        <BookmarkBtn article={article} />
-      </div>
-      <img
-        src={article.urlToImage}
-        alt=""
-        className="h-[15rem] w-full object-cover my-6"
-      />
-      <a
-        href={article.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block font-medium text-[1.1rem] overflow-hidden text-ellipsis truncate-5-lines"
-      >
-        {article.title}
-      </a>
-    </div>
->>>>>>> 6ca7a2d1585679c85c7afef27838194f49b42fd2
   );
 }

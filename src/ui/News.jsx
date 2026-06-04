@@ -2,17 +2,16 @@
 
 import FeatureArticle from "./FeatureArticle";
 import ArticleLayout from "./ArticleLayout";
-<<<<<<< HEAD
 import BookmarkBtn from "./BookmarkBtn";
 
 export default function News({ articles }) {
   const filteredArticles = articles.filter(
     (article) => article.title !== "[Removed]"
   );
-  
+
   const firstArticle = filteredArticles[0];
-  const sidebarArticles = filteredArticles.slice(1, 4); // Next 3 articles for sidebar
-  const remainingArticles = filteredArticles.slice(4); // Rest for trendy news
+  const sidebarArticles = filteredArticles.slice(1, 4);
+  const remainingArticles = filteredArticles.slice(4);
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
@@ -44,9 +43,9 @@ export default function News({ articles }) {
                     </span>
                   </div>
                   <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-2 line-clamp-2">
-                    <a 
-                      href={article.url} 
-                      target="_blank" 
+                    <a
+                      href={article.url}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-orange-600 transition-colors"
                     >
@@ -70,18 +69,5 @@ export default function News({ articles }) {
 
       <ArticleLayout articles={remainingArticles} />
     </main>
-=======
-
-export default function News({ articles }) {
-  const firstArticle =
-    articles[0] && articles[0].title === "[Removed]"
-      ? articles[1]
-      : articles[0];
-  return (
-    <div className="w-full px-[2.8rem]">
-      <FeatureArticle firstArticle={firstArticle} />
-      <ArticleLayout articles={articles} />
-    </div>
->>>>>>> 6ca7a2d1585679c85c7afef27838194f49b42fd2
   );
 }

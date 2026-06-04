@@ -1,27 +1,18 @@
-<<<<<<< HEAD
 import { useEffect, useCallback } from "react";
 import LoginForm from "../features/auth/LoginForm";
 import { useUser } from "../features/auth/useUser";
 import Spinner from "../ui/Spinner";
 import { Navigate } from "react-router-dom";
 import supabase from "../services/supabase";
-=======
-import LoginForm from "../features/auth/LoginForm";
-import Logo from "../ui/Logo";
-import { useUser } from "../features/auth/useUser";
-import Spinner from "../ui/Spinner";
-import { Navigate } from "react-router-dom";
->>>>>>> 6ca7a2d1585679c85c7afef27838194f49b42fd2
 
 export default function Login() {
   const { isLoading, isAuthenticated } = useUser();
 
-<<<<<<< HEAD
   // Define the global callback function
   const handleSignInWithGoogle = useCallback(async (response) => {
     try {
       console.log("Google Sign-In response:", response);
-      
+
       const { data, error } = await supabase.auth.signInWithIdToken({
         provider: "google",
         token: response.credential,
@@ -46,12 +37,12 @@ export default function Login() {
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
-    
+
     script.onload = () => {
       // Initialize Google Sign-In after script loads
       if (window.google) {
         const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-        
+
         // Check if Google Client ID is properly configured
         if (!googleClientId || googleClientId === "YOUR_GOOGLE_CLIENT_ID_HERE") {
           console.warn("Google Client ID not configured. Google Sign-In will be disabled.");
@@ -80,7 +71,7 @@ export default function Login() {
           if (buttonContainer) {
             window.google.accounts.id.renderButton(buttonContainer, {
               type: "standard",
-              shape: "pill", 
+              shape: "pill",
               theme: "outline",
               text: "signin_with",
               size: "large",
@@ -122,10 +113,6 @@ export default function Login() {
         <Spinner />
       </div>
     );
-=======
-  if (isLoading) {
-    return <Spinner />;
->>>>>>> 6ca7a2d1585679c85c7afef27838194f49b42fd2
   }
 
   if (isAuthenticated) {
@@ -133,7 +120,6 @@ export default function Login() {
   }
 
   return (
-<<<<<<< HEAD
     <div className="min-h-screen bg-gray-400">
       <div className="min-h-screen bg-white grid grid-cols-1 lg:grid-cols-2">
         {/* Left Side - Illustration */}
@@ -148,14 +134,14 @@ export default function Login() {
                   <div className="p-4">
                     <div className="h-3 bg-gray-800 rounded mb-2"></div>
                     <div className="h-1 bg-gray-600 rounded w-3/4 mb-4"></div>
-                    
+
                     {/* Headlines */}
                     <div className="space-y-2">
                       <div className="h-2 bg-gray-700 rounded w-full"></div>
                       <div className="h-2 bg-gray-500 rounded w-5/6"></div>
                       <div className="h-2 bg-gray-500 rounded w-4/6"></div>
                     </div>
-                    
+
                     {/* Article columns */}
                     <div className="mt-4 grid grid-cols-2 gap-2">
                       <div className="space-y-1">
@@ -223,12 +209,6 @@ export default function Login() {
           <LoginForm />
         </div>
       </div>
-=======
-    <div className="min-h-[100vh] flex flex-col justify-center items-center">
-      <Logo />
-      <h3 className="mb-10 text-[2.1rem]">Log in to your account</h3>
-      <LoginForm />
->>>>>>> 6ca7a2d1585679c85c7afef27838194f49b42fd2
     </div>
   );
 }
